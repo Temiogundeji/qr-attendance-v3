@@ -12,7 +12,7 @@ const levelRoutes = require("./routes/levels.routes");
 const weekRoutes = require("./routes/weeks.routes");
 const courseRoutes = require("./routes/courses.routes");
 const classRoutes = require("./routes/classes.routes");
-// const attendanceRoutes = require("./routes/attendances.routes");
+const attendanceRoutes = require("./routes/attendances.routes");
 
 require("dotenv").config();
 
@@ -44,7 +44,7 @@ app.use("/api/v1", levelRoutes);
 app.use("/api/v1", weekRoutes);
 app.use("/api/v1", courseRoutes);
 app.use("/api/v1", classRoutes);
-// app.use("/api/v1", attendanceRoutes);
+app.use("/api/v1", attendanceRoutes);
 
 // app.use("/api/v1", levelRoutes);
 
