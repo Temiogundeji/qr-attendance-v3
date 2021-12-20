@@ -32,9 +32,9 @@ app.use(express.urlencoded({ extended: false }));
 // parse requests of content-type - application/json
 app.use(cors());
 
-app.get("/new", (req, res) => {
-  return res.json({ message: "API for QRCode attendance system is here!" });
-});
+// app.get("/new", (req, res) => {
+//   return res.json({ message: "API for QRCode attendance system is here!" });
+// });
 
 app.use("/api/v1", studentRoutes);
 app.use("/api/v1", lecturerRoutes);
