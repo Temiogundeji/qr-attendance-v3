@@ -45,7 +45,21 @@ const getAllAttendancesForAStudent = async (req, res) => {
     return res.status(500).send(e.message);
   }
 };
-//Get all my attendances for every course using courseId and studentId.
+
+//Get all attendances for all courses taken in a day
+const getMyDailyAttendances = async (req, res) => {
+  const { studentId, date } =  req.params;
+   try {
+     const allMyDailyAttendances = await Attendance.findAll({
+       where: { studentId, date },
+       include: [{ model: Student }, { model: Course }, { model: Lecturer}],
+     });
+   } catch (e) {
+     
+   }
+}
+
+//Get all my attendances for a course using courseId and studentId.
 const getStudentAttendancesForACourse = async (req, res) => {
   try {
     const { studentId, courseId } = req.params;
@@ -86,5 +100,6 @@ module.exports = {
   getAllAttendancesForAStudent,
   getAttendancesForADay,
   getStudentAttendancesForACourse,
+  getMyDailyAttendances,
   createAttendance,
 };
